@@ -29,6 +29,9 @@
 		041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280722AEFAD4B00972552 /* NicknameViewController.swift */; };
 		041280782AF1D14000972552 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041280772AF1D14000972552 /* Resource.swift */; };
 		AC0DC0322BB93B3500EA350E /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0DC0312BB93B3500EA350E /* SampleViewController.swift */; };
+		AC3F02962BBAA82700F3415F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */; };
+		AC3F02972BBAA82700F3415F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02952BBAA82700F3415F /* SearchViewController.swift */; };
+		AC3F02992BBAABE600F3415F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02982BBAABE600F3415F /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		041280722AEFAD4B00972552 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
 		041280772AF1D14000972552 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		AC0DC0312BB93B3500EA350E /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
+		AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		AC3F02952BBAA82700F3415F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AC3F02982BBAABE600F3415F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				AC3F02932BBAA81C00F3415F /* Search */,
 				041280532AEF9C1F00972552 /* SignUp */,
 				041280542AEF9C2600972552 /* SignIn */,
 				0412806D2AEFAD0F00972552 /* SignUpOptional */,
@@ -201,6 +208,16 @@
 				AC0DC0312BB93B3500EA350E /* SampleViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		AC3F02932BBAA81C00F3415F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */,
+				AC3F02952BBAA82700F3415F /* SearchViewController.swift */,
+				AC3F02982BBAABE600F3415F /* SearchViewModel.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,9 +368,12 @@
 				AC0DC0322BB93B3500EA350E /* SampleViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
+				AC3F02962BBAA82700F3415F /* SearchTableViewCell.swift in Sources */,
+				AC3F02972BBAA82700F3415F /* SearchViewController.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
+				AC3F02992BBAABE600F3415F /* SearchViewModel.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
 			);
