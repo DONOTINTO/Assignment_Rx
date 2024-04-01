@@ -32,6 +32,10 @@
 		AC3F02962BBAA82700F3415F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */; };
 		AC3F02972BBAA82700F3415F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02952BBAA82700F3415F /* SearchViewController.swift */; };
 		AC3F02992BBAABE600F3415F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02982BBAABE600F3415F /* SearchViewModel.swift */; };
+		AC3F029D2BBAB56400F3415F /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F029C2BBAB56400F3415F /* ShoppingViewController.swift */; };
+		AC3F029F2BBAB57500F3415F /* ShoppingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F029E2BBAB57500F3415F /* ShoppingViewModel.swift */; };
+		AC3F02A12BBAB90E00F3415F /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02A02BBAB90E00F3415F /* ShoppingTableViewCell.swift */; };
+		AC3F02A32BBABAFE00F3415F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02A22BBABAFE00F3415F /* Todo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 		AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		AC3F02952BBAA82700F3415F /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AC3F02982BBAABE600F3415F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AC3F029C2BBAB56400F3415F /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		AC3F029E2BBAB57500F3415F /* ShoppingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewModel.swift; sourceTree = "<group>"; };
+		AC3F02A02BBAB90E00F3415F /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		AC3F02A22BBABAFE00F3415F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +139,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				AC3F029B2BBAB55800F3415F /* Shopping */,
 				AC3F02932BBAA81C00F3415F /* Search */,
 				041280532AEF9C1F00972552 /* SignUp */,
 				041280542AEF9C2600972552 /* SignIn */,
@@ -213,11 +222,22 @@
 		AC3F02932BBAA81C00F3415F /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */,
 				AC3F02952BBAA82700F3415F /* SearchViewController.swift */,
+				AC3F02942BBAA82700F3415F /* SearchTableViewCell.swift */,
 				AC3F02982BBAABE600F3415F /* SearchViewModel.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		AC3F029B2BBAB55800F3415F /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				AC3F029C2BBAB56400F3415F /* ShoppingViewController.swift */,
+				AC3F02A02BBAB90E00F3415F /* ShoppingTableViewCell.swift */,
+				AC3F029E2BBAB57500F3415F /* ShoppingViewModel.swift */,
+				AC3F02A22BBABAFE00F3415F /* Todo.swift */,
+			);
+			path = Shopping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,11 +384,15 @@
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
+				AC3F02A12BBAB90E00F3415F /* ShoppingTableViewCell.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
+				AC3F02A32BBABAFE00F3415F /* Todo.swift in Sources */,
 				AC0DC0322BB93B3500EA350E /* SampleViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
+				AC3F029F2BBAB57500F3415F /* ShoppingViewModel.swift in Sources */,
 				AC3F02962BBAA82700F3415F /* SearchTableViewCell.swift in Sources */,
+				AC3F029D2BBAB56400F3415F /* ShoppingViewController.swift in Sources */,
 				AC3F02972BBAA82700F3415F /* SearchViewController.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
