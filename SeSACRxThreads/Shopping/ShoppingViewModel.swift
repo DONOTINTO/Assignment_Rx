@@ -16,8 +16,8 @@ class ShoppingViewModel {
     private var todoList: [Todo] = []
     lazy var todoListObservable = BehaviorSubject(value: todoList)
     
-    let appendButtonClickedObservable = PublishSubject<String>()
-    let deleteButtonClickedObservable = PublishSubject<IndexPath>()
+    let appendButtonClickedObservable = PublishRelay<String>()
+    let deleteButtonClickedObservable = PublishRelay<IndexPath>()
     let checkButtonClickedObservable = PublishSubject<Int>()
     let importantButtonClickedObservable = PublishSubject<Int>()
     let searchObservable = PublishSubject<String>()
@@ -25,7 +25,7 @@ class ShoppingViewModel {
     init() {
         
         // 추가 버튼 클릭 이벤트 처리
-        appendButtonClickedObservable.bind(with: self) { owner, value in
+        appendButtonClickedObservable.asDriver(onErrorJustReturn: "").drive(with: self) { owner, value in
             
             let newTodo = Todo(isChecked: false, description: value, isImportant: false)
             owner.todoList.append(newTodo)
@@ -34,7 +34,7 @@ class ShoppingViewModel {
         }.disposed(by: disposeBag)
         
         // 삭제 버튼 클릭 이벤트 처리
-        deleteButtonClickedObservable.bind(with: self) { owner, indexPath in
+        deleteButtonClickedObservable.asDriver(onErrorJustReturn: IndexPath(row: 0, section: 0)).drive(with: self) { owner, indexPath in
             
             owner.todoList.remove(at: indexPath.row)
             

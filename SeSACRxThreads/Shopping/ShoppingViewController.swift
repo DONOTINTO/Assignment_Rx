@@ -18,18 +18,22 @@ class ShoppingViewController: UIViewController {
     let shoppingListTableView = UITableView(frame: .zero, style: .insetGrouped)
     
     let shoppingVM = ShoppingViewModel()
+    
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureView()
         bind()
     }
     
     private func bind() {
         
+        
         // 테이블 뷰 셀 등록
-        shoppingVM.todoListObservable.bind(to: shoppingListTableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) {
+        shoppingVM.todoListObservable
+            .bind(to: shoppingListTableView.rx.items(cellIdentifier: ShoppingTableViewCell.identifier, cellType: ShoppingTableViewCell.self)) {
             (row, element, cell) in
             
             cell.configure(element)
@@ -40,7 +44,7 @@ class ShoppingViewController: UIViewController {
                 owner.shoppingVM.checkButtonClickedObservable.onNext(row)
                 
             }.disposed(by: cell.disposeBag)
-            
+                
             // 중요 버튼 클릭 이벤트
             cell.importantButton.rx.tap.bind(with: self) { owner, _ in
                 
@@ -54,27 +58,27 @@ class ShoppingViewController: UIViewController {
         shoppingListTableView.rx.modelSelected(Todo.self).bind(with: self) { owner, data in
             
             owner.navigationController?.pushViewController(SearchViewController(), animated: true)
-        }.disposed(by: shoppingVM.disposeBag)
+        }.disposed(by: disposeBag)
         
         // 추가 버튼 클릭 이벤트
-        makeListButton.rx.tap.withLatestFrom(makeListTextField.rx.text.orEmpty).subscribe(with: self) { owner, value in
+        makeListButton.rx.tap.withLatestFrom(makeListTextField.rx.text.orEmpty)
+            .bind(with: self, onNext: { owner, value in
             
-            owner.shoppingVM.appendButtonClickedObservable.onNext(value)
-            
-        }.disposed(by: shoppingVM.disposeBag)
+            owner.shoppingVM.appendButtonClickedObservable.accept(value)
+        }).disposed(by: disposeBag)
         
         // 삭제 버튼 클릭 이벤트
-        shoppingListTableView.rx.itemDeleted.bind(with: self) { owner, indexPath in
-            
-            owner.shoppingVM.deleteButtonClickedObservable.onNext(indexPath)
-            
-        }.disposed(by: shoppingVM.disposeBag)
+        shoppingListTableView.rx.itemDeleted
+            .bind(with: self) { owner, indexPath in
+                
+                owner.shoppingVM.deleteButtonClickedObservable.accept(indexPath)
+            }.disposed(by: disposeBag)
         
         // 실시간 검색 이벤트
         makeListTextField.rx.text.orEmpty.map { $0.trimmingCharacters(in: .whitespaces) }.distinctUntilChanged().bind(with: self) { owner, value in
             
             owner.shoppingVM.searchObservable.onNext(value)
-        }.disposed(by: shoppingVM.disposeBag)
+        }.disposed(by: disposeBag)
     }
 }
 
