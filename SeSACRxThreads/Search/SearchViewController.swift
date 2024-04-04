@@ -21,8 +21,10 @@ class SearchViewController: UIViewController {
     }()
     
     let searchBar = UISearchBar()
+    let barButtonItem = UIBarButtonItem(title: "추가", style: .plain, target: nil, action: nil)
     
     let searchVM = SearchViewModel()
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,37 +38,37 @@ class SearchViewController: UIViewController {
     
     private func bind() {
         
-        searchVM.items.bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.identifier, cellType: SearchTableViewCell.self)) {
-            (row, element, cell) in
+        let searchButtonTapped = searchBar.rx.searchButtonClicked
+            .withLatestFrom(searchBar.rx.text.orEmpty)
+            .distinctUntilChanged()
+        
+        let itemSelected = tableView.rx.itemSelected
+        
+        let itemAppend = barButtonItem.rx.tap
+        
+        let input = SearchViewModel.Input(
+            searchButtonTapped: searchButtonTapped,
+            dataDelete: itemSelected,
+            dataAppend: itemAppend)
+        
+        let output = searchVM.transform(input: input)
+        
+        output.items.drive(
+            tableView.rx.items(
+                cellIdentifier: SearchTableViewCell.identifier,
+                cellType: SearchTableViewCell.self)) { (row, element, cell) in
             
             cell.appNameLabel.text = element + "\(row)"
             cell.appIconImageView.backgroundColor = .systemBlue
-            
-        }.disposed(by: searchVM.disposeBag)
+        }.disposed(by: disposeBag)
         
-        searchBar.rx.searchButtonClicked.withLatestFrom(searchBar.rx.text.orEmpty).distinctUntilChanged().subscribe(with: self) { owner, value in
-            
-            owner.searchVM.searchButtonClickedObservable.onNext(value)
-            
-        }.disposed(by: searchVM.disposeBag)
-        
-        tableView.rx.itemSelected.bind(with: self) { owner, indexPath in
-            
-            owner.searchVM.dataDeleteObservable.onNext(indexPath)
-            
-        }.disposed(by: searchVM.disposeBag)
     }
     
     private func setSearchController() {
         view.addSubview(searchBar)
         navigationItem.titleView = searchBar
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(plusButtonClicked))
-    }
-    
-    @objc func plusButtonClicked() {
-        
-        searchVM.dataAppendObservable.onNext(())
+        navigationItem.rightBarButtonItem = barButtonItem
     }
 }
 

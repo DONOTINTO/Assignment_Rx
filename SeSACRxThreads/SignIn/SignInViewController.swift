@@ -17,6 +17,8 @@ class SignInViewController: UIViewController {
     let signInButton = PointButton(title: "로그인")
     let signUpButton = UIButton()
     
+    let signInVM = SignInViewModel()
+    
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -31,21 +33,25 @@ class SignInViewController: UIViewController {
     
     func bind() {
         
-        signUpButton.rx.tap.bind(with: self) { owner, _ in
+        let input = SignInViewModel.Input(
+            emailText: emailTextField.rx.text,
+            passwordText: passwordTextField.rx.text,
+            signUpButtonTapped: signUpButton.rx.tap,
+            signInBUttonTapped: signInButton.rx.tap)
+        
+        let output = signInVM.transform(input: input)
+        
+        output.signInValid
+            .drive(signInButton.rx.isEnabled).disposed(by: disposeBag)
+        
+        output.signUpButtonTapped
+            .bind(with: self) { owner, _ in
             owner.navigationController?.pushViewController(SignUpViewController(), animated: true)
         }.disposed(by: disposeBag)
         
-        signInButton.rx.tap.bind(with: self) { owner, _ in
-            print("회원가입 완료")
+        output.signInBUttonTapped.bind(with: self) { owner, _ in
+            print("회원 가입 완료")
         }.disposed(by: disposeBag)
-        
-        let emailValid = emailTextField.rx.text.orEmpty.map { $0.count >= 5}
-        let passwordValid = passwordTextField.rx.text.orEmpty.map { $0.count >= 5 }
-        let everythingValid = Observable.combineLatest(emailValid, passwordValid).map { $0 && $1 }
-        
-        emailValid.bind(to: passwordTextField.rx.isEnabled).disposed(by: disposeBag)
-        everythingValid.bind(to: signInButton.rx.isEnabled).disposed(by: disposeBag)
-        
     }
 }
 
