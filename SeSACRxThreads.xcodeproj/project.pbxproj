@@ -37,6 +37,12 @@
 		AC3F02A12BBAB90E00F3415F /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02A02BBAB90E00F3415F /* ShoppingTableViewCell.swift */; };
 		AC3F02A32BBABAFE00F3415F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F02A22BBABAFE00F3415F /* Todo.swift */; };
 		AC9FCFD72BBD845600395FC2 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFD62BBD845600395FC2 /* TestViewController.swift */; };
+		AC9FCFEE2BC0345E00395FC2 /* BoxOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFE82BC0345E00395FC2 /* BoxOfficeViewController.swift */; };
+		AC9FCFEF2BC0345E00395FC2 /* BoxOfficeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFE92BC0345E00395FC2 /* BoxOfficeViewModel.swift */; };
+		AC9FCFF02BC0345E00395FC2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFEA2BC0345E00395FC2 /* Network.swift */; };
+		AC9FCFF12BC0345E00395FC2 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFEB2BC0345E00395FC2 /* ShareViewController.swift */; };
+		AC9FCFF22BC0345E00395FC2 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFEC2BC0345E00395FC2 /* MovieCollectionViewCell.swift */; };
+		AC9FCFF32BC0345E00395FC2 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC9FCFED2BC0345E00395FC2 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +94,12 @@
 		AC3F02A02BBAB90E00F3415F /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 		AC3F02A22BBABAFE00F3415F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		AC9FCFD62BBD845600395FC2 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		AC9FCFE82BC0345E00395FC2 /* BoxOfficeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewController.swift; sourceTree = "<group>"; };
+		AC9FCFE92BC0345E00395FC2 /* BoxOfficeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewModel.swift; sourceTree = "<group>"; };
+		AC9FCFEA2BC0345E00395FC2 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		AC9FCFEB2BC0345E00395FC2 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		AC9FCFEC2BC0345E00395FC2 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		AC9FCFED2BC0345E00395FC2 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +153,7 @@
 		041280222AEF9BAB00972552 /* SeSACRxThreads */ = {
 			isa = PBXGroup;
 			children = (
+				AC9FCFE72BC0344D00395FC2 /* BoxOffice */,
 				AC9FCFD62BBD845600395FC2 /* TestViewController.swift */,
 				AC3F029B2BBAB55800F3415F /* Shopping */,
 				AC3F02932BBAA81C00F3415F /* Search */,
@@ -241,6 +254,19 @@
 				AC3F02A22BBABAFE00F3415F /* Todo.swift */,
 			);
 			path = Shopping;
+			sourceTree = "<group>";
+		};
+		AC9FCFE72BC0344D00395FC2 /* BoxOffice */ = {
+			isa = PBXGroup;
+			children = (
+				AC9FCFE82BC0345E00395FC2 /* BoxOfficeViewController.swift */,
+				AC9FCFE92BC0345E00395FC2 /* BoxOfficeViewModel.swift */,
+				AC9FCFED2BC0345E00395FC2 /* Movie.swift */,
+				AC9FCFEC2BC0345E00395FC2 /* MovieCollectionViewCell.swift */,
+				AC9FCFEA2BC0345E00395FC2 /* Network.swift */,
+				AC9FCFEB2BC0345E00395FC2 /* ShareViewController.swift */,
+			);
+			path = BoxOffice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,13 +412,18 @@
 				0412806F2AEFAD2D00972552 /* BirthdayViewController.swift in Sources */,
 				AC9FCFD72BBD845600395FC2 /* TestViewController.swift in Sources */,
 				041280652AEFA2F000972552 /* SignTextField.swift in Sources */,
+				AC9FCFF12BC0345E00395FC2 /* ShareViewController.swift in Sources */,
 				0412806C2AEFABFE00972552 /* PasswordViewController.swift in Sources */,
 				041280562AEFA04800972552 /* SignInViewController.swift in Sources */,
 				AC3F02A12BBAB90E00F3415F /* ShoppingTableViewCell.swift in Sources */,
+				AC9FCFEE2BC0345E00395FC2 /* BoxOfficeViewController.swift in Sources */,
 				041280282AEF9BAB00972552 /* ViewController.swift in Sources */,
 				AC3F02A32BBABAFE00F3415F /* Todo.swift in Sources */,
+				AC9FCFF02BC0345E00395FC2 /* Network.swift in Sources */,
 				AC0DC0322BB93B3500EA350E /* SampleViewController.swift in Sources */,
 				041280632AEFA0CE00972552 /* PointButton.swift in Sources */,
+				AC9FCFF32BC0345E00395FC2 /* Movie.swift in Sources */,
+				AC9FCFEF2BC0345E00395FC2 /* BoxOfficeViewModel.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				AC3F029F2BBAB57500F3415F /* ShoppingViewModel.swift in Sources */,
 				AC3F02962BBAA82700F3415F /* SearchTableViewCell.swift in Sources */,
@@ -402,6 +433,7 @@
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
 				AC3F02992BBAABE600F3415F /* SearchViewModel.swift in Sources */,
+				AC9FCFF22BC0345E00395FC2 /* MovieCollectionViewCell.swift in Sources */,
 				041280262AEF9BAB00972552 /* SceneDelegate.swift in Sources */,
 				041280582AEFA05300972552 /* SignInViewModel.swift in Sources */,
 			);

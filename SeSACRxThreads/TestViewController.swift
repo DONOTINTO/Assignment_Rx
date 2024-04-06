@@ -7,8 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class TestViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,7 @@ class TestViewController: UIViewController {
         // testPublish()
         // testBehavior()
         // testReplay()
-        testAsync()
+        testFlatMap()
     }
     
     func testPublish() {
@@ -80,5 +83,17 @@ class TestViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         asyncSubject.onCompleted()
+    }
+    
+    func testFlatMap() {
+        
+        let timer1 = Observable<Int>.interval(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance).map({"o1: \($0)"})
+        let timer2 = Observable<Int>.interval(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance).map({"o2: \($0)"})
+
+        Observable.of(timer1,timer2)
+            .map({$0})
+            .subscribe(onNext: { value in
+                
+            }).disposed(by: disposeBag)
     }
 }
