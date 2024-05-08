@@ -15,11 +15,12 @@ class TestViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // testPublish()
         // testBehavior()
         // testReplay()
-        testFlatMap()
+        // testFlatMap()
+        testError()
     }
     
     func testPublish() {
@@ -49,7 +50,7 @@ class TestViewController: UIViewController {
         
         behaviorSubject.onNext(25)
     }
-
+    
     func testReplay() {
         
         let replaySubject = ReplaySubject<Int>.create(bufferSize: 3)
@@ -89,11 +90,16 @@ class TestViewController: UIViewController {
         
         let timer1 = Observable<Int>.interval(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance).map({"o1: \($0)"})
         let timer2 = Observable<Int>.interval(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance).map({"o2: \($0)"})
-
+        
         Observable.of(timer1,timer2)
             .map({$0})
             .subscribe(onNext: { value in
                 
             }).disposed(by: disposeBag)
+    }
+    
+    func testError() {
+        
+        
     }
 }
